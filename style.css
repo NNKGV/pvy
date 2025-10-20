@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ffd6e0, #fff0f5);
+  overflow: hidden;
+}
+
+/* ==== PHONG BÌ ==== */
+.envelope {
+  position: relative;
+  width: 220px;
+  height: 140px;
+  background: #f06292;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: transform 0.6s ease;
+}
+
+.envelope:hover {
+  transform: scale(1.05);
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 110px solid transparent;
+  border-right: 110px solid transparent;
+  border-bottom: 70px solid #ec407a;
+}
+
+.envelope-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 220px;
+  height: 70px;
+  background: #f48fb1;
+  border-radius: 0 0 5px 5px;
+}
+
+.click-text {
+  position: absolute;
+  top: 105%;
+  width: 100%;
+  text-align: center;
+  color: #e91e63;
+  font-weight: bold;
+  font-size: 1em;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0.4; }
+}
+
+/* ==== THƯ ==== */
+.letter {
+  position: absolute;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px 50px;
+  width: 85%;
+  max-width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.25);
+  opacity: 0;
+  transform: translateY(50px) scale(0.9);
+  transition: all 1s ease;
+}
+
+.letter.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.hidden {
+  display: none;
+}
+
+h1 {
+  color: #e91e63;
+  margin-bottom: 20px;
+  font-size: 1.6em;
+}
+
+.message {
+  font-size: 1.05em;
+  color: #333;
+  text-align: justify;      /* 🔹 Canh đều hai bên */
+  line-height: 1.8;         /* 🔹 Giãn dòng dễ đọc */
+  text-indent: 20px;        /* 🔹 Thụt đầu dòng nhẹ */
+  margin-bottom: 25px;
+}
+
+.btn {
+  background-color: #ff80ab;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #e91e63;
+}
+
+/* ==== HOA RƠI ==== */
+.flower {
+  position: absolute;
+  top: -50px;
+  width: 25px;
+  height: 25px;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/765/765612.png');
+  background-size: cover;
+  animation: fall linear forwards;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0.5;
+  }
+}

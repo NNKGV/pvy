@@ -20,7 +20,6 @@ body{
     cursor:pointer;
 }
 
-/* Nắp thư */
 .flap{
     position:absolute;
     width:100%;
@@ -45,9 +44,10 @@ body{
     box-sizing:border-box;
     transform:translateY(100%);
     transition:1s;
-    overflow:auto;
+    overflow:hidden;
 }
 
+/* Khi mở */
 .envelope.open .flap{
     transform:rotateX(180deg);
 }
@@ -56,7 +56,7 @@ body{
     transform:translateY(0);
 }
 
-/* Trái tim 3D */
+/* Trái tim */
 .heart{
     width:80px;
     height:80px;
@@ -77,19 +77,29 @@ body{
     border-radius:50%;
 }
 
-.heart::before{
-    top:-40px;
-    left:0;
-}
-
-.heart::after{
-    left:40px;
-    top:0;
-}
+.heart::before{ top:-40px; left:0; }
+.heart::after{ left:40px; top:0; }
 
 @keyframes beat{
     0%,100%{ transform:scale(1) rotate(-45deg); }
     50%{ transform:scale(1.15) rotate(-45deg); }
+}
+
+/* ẨN BAN ĐẦU */
+.message,
+.chat-box,
+.chat-display{
+    opacity:0;
+    transform:translateY(20px);
+    transition:1s;
+}
+
+/* CHỈ HIỆN SAU KHI MỞ */
+.envelope.open .message,
+.envelope.open .chat-box,
+.envelope.open .chat-display{
+    opacity:1;
+    transform:translateY(0);
 }
 
 .message{
@@ -97,7 +107,6 @@ body{
     margin:10px 0;
 }
 
-/* Chat */
 .chat-box{
     display:flex;
     gap:5px;

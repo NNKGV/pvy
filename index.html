@@ -1,35 +1,23 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chúc mừng 20/10 💐</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Valentine 14/2 💖</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Phong bì -->
-  <div class="envelope" id="envelope">
-    <div class="envelope-flap"></div>
-    <div class="envelope-body"></div>
-    <p class="click-text">📩 Nhấn để mở thư</p>
-  </div>
 
-  <!-- Nội dung thư -->
-  <div class="letter hidden" id="letter">
-    <h1>🌸 Chúc mừng ngày Phụ nữ Việt Nam 20/10 🌸</h1>
+<div class="container">
+    <div class="heart-container" onclick="showMessage()">
+        <div class="heart"></div>
+    </div>
 
-    <p class="message">
-      ...
-    </p>
+    <div class="message" id="msg">
+        💖 Chúc em một ngày 14/2 thật hạnh phúc 💖 <br>
+        Anh mong chúng ta sẽ luôn bên nhau mãi mãi ❤️
+    </div>
+</div>
 
-    <button class="btn" id="toggleMusicBtn">🔊 Tắt nhạc</button>
-  </div>
-
-  <!-- Nhạc nền -->
-  <audio id="bgMusic" loop>
-    <source src="Vườn mây vừa hay.mp3" type="audio/mpeg">
-  </audio>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

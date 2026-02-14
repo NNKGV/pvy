@@ -1,4 +1,3 @@
-function showMessage(){
-    const msg = document.getElementById("msg");
-    msg.classList.toggle("show");
+function openLetter(){
+    document.querySelector(".envelope").classList.toggle("open");
 }

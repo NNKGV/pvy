@@ -10,12 +10,21 @@
 <div class="scene">
     <div class="envelope" onclick="openLetter()">
         <div class="flap"></div>
-        <div class="letter">
+
+        <div class="letter" onclick="event.stopPropagation()">
             <div class="heart"></div>
+
             <p class="message">
-                💖 Chúc em 14/2 thật hạnh phúc 💖 <br>
-                Anh yêu em rất nhiều ❤️
+                💖 Chúc em 14/2 thật hạnh phúc 💖
             </p>
+
+            <!-- Chat Box -->
+            <div class="chat-box">
+                <input type="text" id="inputMsg" placeholder="Nhập lời nhắn của bạn...">
+                <button onclick="sendMessage()">Gửi</button>
+            </div>
+
+            <div class="chat-display" id="chatDisplay"></div>
         </div>
     </div>
 </div>

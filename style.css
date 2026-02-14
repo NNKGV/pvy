@@ -4,40 +4,69 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background: linear-gradient(135deg,#ff9a9e,#fad0c4);
-    overflow:hidden;
+    background:#e89c9c;
     font-family: 'Segoe UI', sans-serif;
 }
 
-.container{
-    position:relative;
-    text-align:center;
+/* Scene */
+.scene{
+    perspective:1000px;
 }
 
-/* Trái tim 3D */
-.heart-container{
-    width:200px;
-    height:200px;
+/* Envelope */
+.envelope{
     position:relative;
-    transform-style:preserve-3d;
-    animation: rotate 8s infinite linear;
+    width:300px;
+    height:200px;
+    background:#f8c8c8;
     cursor:pointer;
 }
 
-@keyframes rotate{
-    from{ transform: rotateY(0deg); }
-    to{ transform: rotateY(360deg); }
+/* Flap */
+.flap{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:#f3a6a6;
+    clip-path: polygon(0 0, 50% 50%, 100% 0);
+    transform-origin:top;
+    transition:1s;
 }
 
-.heart{
+/* Letter inside */
+.letter{
     position:absolute;
+    width:100%;
+    height:100%;
+    background:white;
+    top:0;
+    left:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    transform:translateY(100%);
+    transition:1s;
+}
+
+/* Open animation */
+.envelope.open .flap{
+    transform:rotateX(180deg);
+}
+
+.envelope.open .letter{
+    transform:translateY(0);
+}
+
+/* 3D Heart */
+.heart{
     width:100px;
-    height:160px;
-    background:#ff3366;
-    left:50px;
-    top:20px;
-    transform: rotate(-45deg);
-    box-shadow:0 0 40px #ff4d88;
+    height:100px;
+    background:#ff2e63;
+    position:relative;
+    transform:rotate(-45deg);
+    animation:beat 1s infinite;
+    box-shadow:0 10px 30px rgba(255,0,80,0.4);
 }
 
 .heart::before,
@@ -45,32 +74,34 @@ body{
     content:"";
     position:absolute;
     width:100px;
-    height:160px;
-    background:#ff3366;
-    border-radius:50px 50px 0 0;
+    height:100px;
+    background:#ff2e63;
+    border-radius:50%;
 }
 
 .heart::before{
+    top:-50px;
     left:0;
-    top:-80px;
 }
 
 .heart::after{
-    left:80px;
+    left:50px;
     top:0;
 }
 
-/* Lời chúc */
-.message{
-    margin-top:30px;
-    font-size:20px;
-    color:white;
-    opacity:0;
-    transform:translateY(20px);
-    transition:0.8s;
+@keyframes beat{
+    0%,100%{ transform:scale(1) rotate(-45deg); }
+    50%{ transform:scale(1.15) rotate(-45deg); }
 }
 
-.show{
+.message{
+    margin-top:20px;
+    text-align:center;
+    color:#ff2e63;
+    opacity:0;
+    transition:1s;
+}
+
+.envelope.open .message{
     opacity:1;
-    transform:translateY(0);
 }
